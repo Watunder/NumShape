@@ -1,10 +1,5 @@
 tool
-extends EditorPlugin
+extends Node
 
-
-func _enter_tree():
-	pass
-
-
-func _exit_tree():
-	pass
+func _ready():
+	$PreviewTile.tile_set = TileSet.new()

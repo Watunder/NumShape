@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/numshape/numshape.gd" type="Script" id=1]
+[ext_resource path="res://addons/numshape/scenes/NumShape_Voxel.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport3D")
+
+[sub_resource type="TileSet" id=2]
+
+[node name="NumShape" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Viewport3D" type="Viewport" parent="."]
+size = Vector2( 256, 256 )
+size_override_stretch = true
+own_world = true
+usage = 3
+
+[node name="Voxel" parent="Viewport3D" instance=ExtResource( 2 )]
+
+[node name="PixelSprite" type="Sprite" parent="."]
+position = Vector2( 318, 360.667 )
+
+[node name="VoxelSprite" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = SubResource( 1 )
+
+[node name="ShapeSprite" type="Sprite" parent="."]
+position = Vector2( 960, 360 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 640, 360 )
+current = true
+
+[node name="PreviewTile" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+format = 1
